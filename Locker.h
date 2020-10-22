@@ -10,7 +10,7 @@
 #include "sha256.h"
 
 /****************************** MACROS ******************************/
-#define LOCKER_SIZE 2
+#define LOCKER_SIZE 20
 
 #define SALT_SIZE 16  
 #define SALTED_PASS_SIZE 256  

@@ -21,7 +21,6 @@
 #define SHA256_STRING_SIZE 33
 #define SALT_STRING_SIZE 17
 #define MAX_PASS_SIZE 128
-#define LOCKER_SIZE 10
 
 /**************************** VARIABLES *****************************/
 door doors[LOCKER_SIZE];
