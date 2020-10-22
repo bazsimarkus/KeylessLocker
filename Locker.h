@@ -35,5 +35,8 @@ int lockDoor(int doorNum);
 int freeUpDoor(int doorNum);
 int reserveDoor(int doorNum, char* password);
 
+bool isDoorLocked(int doorNum);
+bool isDoorReserved(int doorNum);
+
 void printDoors();
 int runLockerConsole();

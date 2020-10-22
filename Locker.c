@@ -27,6 +27,7 @@
 door doors[LOCKER_SIZE];
 
 /*********************** FUNCTION DEFINITIONS ***********************/
+// Salt generator for hashing
 void generateSalt(char* destination) {
 	static const char characterList[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	srand(time(0));
@@ -35,6 +36,18 @@ void generateSalt(char* destination) {
 	}
 
 	destination[SALT_SIZE] = '\0';
+}
+
+// Locked door getter function
+bool isDoorLocked(int doorNum)
+{
+	return doors[doorNum].locked;
+}
+
+// Reserved door getter function
+bool isDoorReserved(int doorNum)
+{
+	return doors[doorNum].reserved;
 }
 
 // Free door check function
