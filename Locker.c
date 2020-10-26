@@ -40,12 +40,14 @@ void generateSalt(char* destination) {
 // Locked door getter function
 bool isDoorLocked(int doorNum)
 {
+	if (doorNum > LOCKER_SIZE) return -4;
 	return doors[doorNum].locked;
 }
 
 // Reserved door getter function
 bool isDoorReserved(int doorNum)
 {
+	if (doorNum > LOCKER_SIZE) return -4;
 	return doors[doorNum].reserved;
 }
 
@@ -98,6 +100,7 @@ int generateFreedoorNumber()
 // Door logic functions: unlock, lock, freeUp, reserve
 int unlockDoor(int doorNum, char* password)
 {
+	if (doorNum > LOCKER_SIZE) return -4;
 	if (doors[doorNum].locked == false) { return -2; };
 
 	char saltedPassword[256] = { 0 };
@@ -120,6 +123,7 @@ int unlockDoor(int doorNum, char* password)
 
 int lockDoor(int doorNum)
 {
+	if (doorNum > LOCKER_SIZE) return -4;
 	if (doors[doorNum].reserved == false) { return -1; }
 	if (doors[doorNum].locked == true) { return -2; };
 	doors[doorNum].locked = true;
@@ -128,6 +132,7 @@ int lockDoor(int doorNum)
 
 int freeUpDoor(int doorNum)
 {
+	if (doorNum > LOCKER_SIZE) return -4;
 	if (doors[doorNum].reserved == false) { return -1; }
 	if (doors[doorNum].locked == true) { return -2; }
 	doors[doorNum].reserved = false;
@@ -138,8 +143,8 @@ int freeUpDoor(int doorNum)
 
 int reserveDoor(int doorNum, char* password)
 {
+	if (doorNum > LOCKER_SIZE) return -4;
 	if (doors[doorNum].reserved == true) { return -1; }
-
 	unsigned char salt[SALT_STRING_SIZE] = { 0 };
 	generateSalt(salt);
 
